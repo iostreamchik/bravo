@@ -48,7 +48,7 @@ project.afterEvaluate {
                 from components.release
                 groupId = 'com.github.iostreamchik'
                 artifactId = 'libraryb'
-                version = '0.0.1-beta'
+                version = '0.0.4-beta'
             }
         }
     }
