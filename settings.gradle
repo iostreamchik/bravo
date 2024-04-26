@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TestGithubLib"
-//include ':app'
+include ':app'
 include ':librarya'
 include ':libraryb'
