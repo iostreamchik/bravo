@@ -29,6 +29,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TestGithubLibTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    innerPadding
                     Greeting(
                         modifier = Modifier.fillMaxSize()
                     )
