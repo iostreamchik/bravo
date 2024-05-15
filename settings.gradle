@@ -18,6 +18,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+sourceControl {
+    gitRepository("https://github.com/iostreamchik/bravo.git") {
+        producesModule("com.example:librarya")
+    }
+}
+
 
 rootProject.name = "TestGithubLib"
 include ':app'

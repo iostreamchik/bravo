@@ -48,7 +48,8 @@ android {
 
 dependencies {
 
-
+//    implementation 'com.github.iostreamchik:bravo.librarya:0.0.8-beta'
+//    implementation 'com.example:librarya:0.0.8-beta'
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
@@ -58,8 +59,6 @@ dependencies {
     implementation libs.androidx.ui.graphics
     implementation libs.androidx.ui.tooling.preview
     implementation libs.androidx.material3
-    implementation project(':librarya')
-    implementation project(':libraryb')
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core

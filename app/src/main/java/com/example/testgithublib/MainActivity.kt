@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.librarya.Alpha
-import com.example.libraryb.Bravo
+//import com.example.librarya.Alpha
+//import com.example.libraryb.Bravo
 import com.example.testgithublib.ui.theme.TestGithubLibTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,11 +46,15 @@ fun Greeting(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        OutlinedButton(onClick = { Alpha.toastMessage(context) }) {
+        OutlinedButton(onClick = {
+//            Alpha.toastMessage(context)
+        }) {
             Text(text = "Alpha")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = { Bravo.toastMessage(context) }) {
+        OutlinedButton(onClick = {
+//            Bravo.toastMessage(context)
+        }) {
             Text(text = "Bravo")
         }
     }
