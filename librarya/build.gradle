@@ -30,24 +30,21 @@ android {
     }
 }
 
-def githubProperties = new Properties()
-githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-
 def getVersionName = { ->
-    return "0.0.1-test.1"
+    return "0.0.1-test.3"
 }
 
-def getArtificatId = { ->
+def getArtifactId = { ->
     return "librarya" // Replace with library name ID
 }
 
 publishing {
     publications {
         bar(MavenPublication) {
-            groupId 'com.example.librarya'
-            artifactId getArtificatId()
+            groupId 'com.example'
+            artifactId getArtifactId()
             version getVersionName()
-            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
+            artifact("$buildDir/outputs/aar/${getArtifactId()}-release.aar")
             pom.withXml {
                 def dependenciesNode = asNode().appendNode("dependencies")
                 configurations.each {
@@ -67,17 +64,13 @@ publishing {
             }
         }
     }
-
     repositories {
         maven {
             name = "GitHubPackages"
-            /** Configure path of your package repository on Github
-             *  Replace GITHUB_USERID with your/organisation Github userID and REPOSITORY with the repository name on GitHub
-             */
             url = uri("https://maven.pkg.github.com/iostreamchik/bravo")
-
             credentials {
-                /**Create github.properties in root project folder file with gpr.usr=GITHUB_USER_ID  & gpr.key=PERSONAL_ACCESS_TOKEN**/
+                def githubProperties = new Properties()
+                githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
                 username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
                 password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
             }
@@ -96,17 +89,3 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 }
-
-//project.afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.iostreamchik'
-//                artifactId = 'librarya'
-//                version = '0.0.1'
-//            }
-//        }
-//    }
-//}
